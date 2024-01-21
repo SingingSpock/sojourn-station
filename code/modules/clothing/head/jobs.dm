@@ -88,6 +88,7 @@
 	options["Primes visored habit"] = "nt_habithat_visor"
 	options["Primes masked habit"] = "nt_habithat_mask"
 	options["Primes hood"] = "nt_robe_hood"
+	options["Primes saintly headpiece"] = "prime_saint"
 	var/choice = input(M,"What kind of style do you want?","Adjust Style") as null|anything in options
 
 	if(src && choice && !M.incapacitated() && Adjacent(M))

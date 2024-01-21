@@ -221,6 +221,7 @@
 	options["Primes robes"] = "nt_robe_down"
 	options["Primes mantled robes"] = "nt_robe"
 	options["Primes habit"] = "nt_habit"
+	options["Primes saintly robes"] = "prime_saint"
 	var/choice = input(M,"What kind of style do you want?","Adjust Style") as null|anything in options
 
 	if(src && choice && !M.incapacitated() && Adjacent(M))

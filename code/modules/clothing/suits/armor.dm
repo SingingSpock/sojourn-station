@@ -263,6 +263,7 @@
 	armor_list = list(melee = 30, bullet = 30, energy = 25, bomb = 25, bio = 100, rad = 80)
 	flags_inv = HIDEJUMPSUIT
 	var/list/style_options = list(
+	"vinculum cassock" = "vinculum_cassock"
 	"tangent plate armor" = "tangent_plate_armor",
 	"greater heart armor" = "greater_heart")
 
@@ -413,7 +414,6 @@
 	var/list/options = list()
 	options["prime dark"] = "prime"
 	options["prime royal"] = "prime_alt"
-	options["prime saint"] = "prime_saint"
 	options["prime paladin"] = "prime_paladin"
 	options["prime paladin alt"] = "prime_paladin_alt"
 

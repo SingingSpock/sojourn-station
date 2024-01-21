@@ -785,7 +785,6 @@
 	options["prime royal"] = "prime_alt"
 	options["prime royal claric"] = "prime_alt2"
 	options["prime royal doctor"] = "prime_alt3"
-	options["prime saint"] = "prime_saint"
 	options["prime paladin"] = "prime_paladin"
 
 	var/choice = input(M,"What kind of style do you want?","Adjust Style") as null|anything in options
