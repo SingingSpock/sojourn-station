@@ -233,8 +233,7 @@
 	var/mob/M = usr
 	var/list/options = list()
 	options["vector default"] = "acolyte"
-	options["tangent plate armor"] = "tangent_plate_armor"
-	options["greater heart armor"] = "greater_heart"
+
 	options["lemniscate armor"] = "lemniscate_armor"
 	options["factorial armor"] = "factorial_armor"
 	options["monomial armor"] = "monomial_armor"
@@ -263,146 +262,68 @@
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 	armor_list = list(melee = 30, bullet = 30, energy = 25, bomb = 25, bio = 100, rad = 80)
 	flags_inv = HIDEJUMPSUIT
+	var/list/style_options = list(
+	"tangent plate armor" = "tangent_plate_armor",
+	"greater heart armor" = "greater_heart")
+
+/obj/item/clothing/suit/armor/vest/path/verb/toggle_style()
+	set name = "Adjust Style"
+	set category = "Object"
+	set src in usr
+
+	if(!isliving(loc))
+		return
+
+	var/mob/M = usr
+	var/choice = input(M,"What kind of style do you want?","Adjust Style") as null|anything in style_options
+
+	if(src && choice && !M.incapacitated() && Adjacent(M))
+		icon_state = style_options[choice]
+		to_chat(M, "You adjusted your style into [choice] mode.")
+		update_icon()
+		update_wear_icon()
+		usr.update_action_buttons()
+		return 1
 
 /obj/item/clothing/suit/armor/vest/path/divisor
 	name = "Divisor's Guardsmen Armor"
 	desc = "The armour of the church arms forces of old - coming from the now extinct military of New Byzantine. The inner layers has plates of biomatter-infused steel and chainmail, together with shoulder protection that elevates to protect the neck and fix it with the helmet of the same design."
 	icon_state = "divisor_guardsmen_armor"
-
-/obj/item/clothing/suit/armor/vest/path/divisor/verb/toggle_style()
-	set name = "Adjust Style"
-	set category = "Object"
-	set src in usr
-
-	if(!isliving(loc))
-		return
-
-	var/mob/M = usr
-	var/list/options = list()
-	options["Divisor's Guardsmen Armor"] = "divisor_guardsmen_armor"
-	options["Divisor Plate Armor"] = "divisor_plate_armor"
-
-	var/choice = input(M,"What kind of style do you want?","Adjust Style") as null|anything in options
-
-	if(src && choice && !M.incapacitated() && Adjacent(M))
-		icon_state = options[choice]
-		to_chat(M, "You adjusted your style into [choice] mode.")
-		update_icon()
-		update_wear_icon()
-		usr.update_action_buttons()
-		return 1
+	style_options = list(
+	"Divisor's Guardsmen Armor" = "divisor_guardsmen_armor",
+	"Divisor Plate Armor" = "divisor_plate_armor")
 
 /obj/item/clothing/suit/armor/vest/path/tessallate
 	name = "Tessellate Riding Habit"
 	desc = "The Tessellate Habit is an mixture of an well protective, efficient gambeson with inner chainmail that ensures the protection of it's user."
 	icon_state = "tessellate_riding_habit"
-
-/obj/item/clothing/suit/armor/vest/path/tessallate/verb/toggle_style()
-	set name = "Adjust Style"
-	set category = "Object"
-	set src in usr
-
-	if(!isliving(loc))
-		return
-
-	var/mob/M = usr
-	var/list/options = list()
-	options["Tessellate Riding Habit"] = "tessellate_riding_habit"
-	options["Tessellate Doctor Garbs"] = "tessellate_doctor_garbs"
-
-	var/choice = input(M,"What kind of style do you want?","Adjust Style") as null|anything in options
-
-	if(src && choice && !M.incapacitated() && Adjacent(M))
-		icon_state = options[choice]
-		to_chat(M, "You adjusted your style into [choice] mode.")
-		update_icon()
-		update_wear_icon()
-		usr.update_action_buttons()
-		return 1
+	style_options = list(
+	"Tessellate Riding Habit" = "tessellate_riding_habit",
+	"Tessellate Doctor Garbs" = "tessellate_doctor_garbs")
 
 /obj/item/clothing/suit/armor/vest/path/lemniscate
 	name = "Lemniscate Garbs"
 	desc = "The well suited lemniscates garbs of new, made for the highest quality ceremonies by looking absurdly fancy.  It's protective values are quite close to the design of an pourpoint with inner chainmail with golden ridges and lines that only reinforces it's fanciness value."
 	icon_state = "lemniscate_garbs"
-
-/obj/item/clothing/suit/armor/vest/path/lemniscate/verb/toggle_style()
-	set name = "Adjust Style"
-	set category = "Object"
-	set src in usr
-
-	if(!isliving(loc))
-		return
-
-	var/mob/M = usr
-	var/list/options = list()
-	options["Lemniscate Garbs"] = "lemniscate_garbs"
-	options["Lemniscate Caftan"] = "lemniscate_caftan"
-
-	var/choice = input(M,"What kind of style do you want?","Adjust Style") as null|anything in options
-
-	if(src && choice && !M.incapacitated() && Adjacent(M))
-		icon_state = options[choice]
-		to_chat(M, "You adjusted your style into [choice] mode.")
-		update_icon()
-		update_wear_icon()
-		usr.update_action_buttons()
-		return 1
+	style_options = list(
+	"Lemniscate Garbs" = "lemniscate_garbs",
+	"Lemniscate Caftan" = "lemniscate_caftan")
 
 /obj/item/clothing/suit/armor/vest/path/monomial
 	name = "Monomial Kasaya"
 	desc = "An old design of armor, often repainted, pieced together with minor plates overlapping on the shoulders, waist and legs, with an large plate protecting the chest and belly."
 	icon_state = "monomial_kasaya"
-
-/obj/item/clothing/suit/armor/vest/path/monomial/verb/toggle_style()
-	set name = "Adjust Style"
-	set category = "Object"
-	set src in usr
-
-	if(!isliving(loc))
-		return
-
-	var/mob/M = usr
-	var/list/options = list()
-	options["Monomial Kasaya"] = "monomial_kasaya"
-	options["Monomial Gusoku"] = "monomial_gusoku"
-
-	var/choice = input(M,"What kind of style do you want?","Adjust Style") as null|anything in options
-
-	if(src && choice && !M.incapacitated() && Adjacent(M))
-		icon_state = options[choice]
-		to_chat(M, "You adjusted your style into [choice] mode.")
-		update_icon()
-		update_wear_icon()
-		usr.update_action_buttons()
-		return 1
+	style_options = list(
+	"Monomial Kasaya" = "monomial_kasaya",
+	"Monomial Gusoku" = "monomial_gusoku")
 
 /obj/item/clothing/suit/armor/vest/path/factorial
 	name = "Factorial powergarb"
 	desc = "A Factorial's best protection well working their duties on the colony and back in its day on New Byzantine, tends to have different attachments for a more personalized garb."
 	icon_state = "factorial_powergarb"
-
-/obj/item/clothing/suit/armor/vest/path/factorial/verb/toggle_style()
-	set name = "Adjust Style"
-	set category = "Object"
-	set src in usr
-
-	if(!isliving(loc))
-		return
-
-	var/mob/M = usr
-	var/list/options = list()
-	options["Factorial powergarb"] = "factorial_powergarb"
-	options["Factorial Vesselcrew Armor"] = "factorial_vesselcrew_armor"
-
-	var/choice = input(M,"What kind of style do you want?","Adjust Style") as null|anything in options
-
-	if(src && choice && !M.incapacitated() && Adjacent(M))
-		icon_state = options[choice]
-		to_chat(M, "You adjusted your style into [choice] mode.")
-		update_icon()
-		update_wear_icon()
-		usr.update_action_buttons()
-		return 1
+	style_options = list(
+	"Factorial powergarb" = "factorial_powergarb",
+	"Factorial Vesselcrew Armor" = "factorial_vesselcrew_armor")
 
 /obj/item/clothing/suit/armor/vest/rosaria
 	name = "rosaria armor"
