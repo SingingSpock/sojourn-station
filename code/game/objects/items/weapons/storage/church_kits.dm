@@ -9,12 +9,13 @@
 	var/stamped
 	if(!stamped)
 		stamped = TRUE
-		var/list/options = list()
-		options["Divisor"] = list(/obj/item/clothing/head/helmet/path/divisor, /obj/item/clothing/suit/armor/vest/path/divisor)
-		options["Tessellate"] = list(/obj/item/clothing/head/helmet/path/tessallate, /obj/item/clothing/suit/armor/vest/path/tessallate)
-		options["Lemniscate"] = list(/obj/item/clothing/head/helmet/path/lemniscate, /obj/item/clothing/suit/armor/vest/path/lemniscate)
-		options["Monomial"] = list(/obj/item/clothing/head/helmet/path/monomial, /obj/item/clothing/suit/armor/vest/path/monomial)
-		options["Factorial"] = list(/obj/item/clothing/head/helmet/path/factorial, /obj/item/clothing/suit/armor/vest/path/factorial)
+		var/list/options = list(
+		"Vinculum" = list(/obj/item/clothing/suit/armor/vest/path, )
+		"Divisor" = list(/obj/item/clothing/head/helmet/path/divisor, /obj/item/clothing/suit/armor/vest/path/divisor),
+		"Tessellate" = list(/obj/item/clothing/head/helmet/path/tessallate, /obj/item/clothing/suit/armor/vest/path/tessallate),
+		"Lemniscate" = list(/obj/item/clothing/head/helmet/path/lemniscate, /obj/item/clothing/suit/armor/vest/path/lemniscate),
+		"Monomial" = list(/obj/item/clothing/head/helmet/path/monomial, /obj/item/clothing/suit/armor/vest/path/monomial),
+		"Factorial" = list(/obj/item/clothing/head/helmet/path/factorial, /obj/item/clothing/suit/armor/vest/path/factorial))
 		var/choice = input(user,"What type of equipment?") as null|anything in options
 		if(src && choice)
 			var/list/things_to_spawn = options[choice]

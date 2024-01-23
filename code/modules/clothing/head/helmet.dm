@@ -571,6 +571,7 @@
 
 
 /obj/item/clothing/head/helmet/path //No path ?
+	name = "Vinculum Headpiece"
 	action_button_name = "Toggle Helmet Light"
 	light_overlay = "helmet_light"
 	brightness_on = 4

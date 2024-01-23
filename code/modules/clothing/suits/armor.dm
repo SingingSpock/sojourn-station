@@ -263,7 +263,7 @@
 	armor_list = list(melee = 30, bullet = 30, energy = 25, bomb = 25, bio = 100, rad = 80)
 	flags_inv = HIDEJUMPSUIT
 	var/list/style_options = list(
-	"vinculum cassock" = "vinculum_cassock"
+	"vinculum cassock" = "vinculum_cassock",
 	"tangent plate armor" = "tangent_plate_armor",
 	"greater heart armor" = "greater_heart")
 
